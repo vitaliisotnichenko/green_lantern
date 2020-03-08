@@ -1,7 +1,7 @@
 """
 This is a list of functions that should be completed.
 """
-
+import string
 from typing import Any
 from typing import List
 
@@ -15,7 +15,7 @@ def is_two_object_has_same_value(first: Any, second: Any) -> bool:
     If @first and @second has same value should return True
     In another case should return False
     """
-    pass
+    return first == second
 
 
 def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
@@ -23,7 +23,7 @@ def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    pass
+    return type(first) == type(second)
 
 
 def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
@@ -31,7 +31,7 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    pass
+    return first is second
 
 
 def multiple_ints(first_value: int, second_value: int) -> int:
@@ -48,8 +48,7 @@ def multiple_ints(first_value: int, second_value: int) -> int:
     Returns:
         Product of elements
     """
-    pass
-
+    return int(first_value) * int(second_value)
 
 def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
     """
@@ -78,7 +77,7 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
             print("Not valid input data")
         >>> "Not valid input data"
     """
-    pass
+    return int(first_value) * int(second_value)
 
 
 def is_word_in_text(word: str, text: str) -> bool:
@@ -97,15 +96,22 @@ def is_word_in_text(word: str, text: str) -> bool:
         >>> False
 
     """
-    pass
+    return word in text
 
 
 def some_loop_exercise() -> list:
     """
     Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
-    pass
+    list_1 = []
 
+    for i in list(range(13)):
+        if i == 6:
+            continue
+        elif i == 7:
+            continue
+        list_1.append(i)
+    return (list_1)
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
     """
@@ -116,8 +122,9 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
-    pass
 
+    new_list = [i for i in data if i>0]
+    return new_list
 
 def alphabet() -> dict:
     """
@@ -127,8 +134,10 @@ def alphabet() -> dict:
         alphabet()
         >>> {"a": 1, "b": 2 ...}
     """
-    pass
-
+    numbers = [x for x in range(1, 27)]
+    letters = string.ascii_lowercase
+    alphabet = dict(zip(numbers, letters))
+    return alphabet
 
 def simple_sort(data: List[int]) -> List[list]:
     """
@@ -137,4 +146,12 @@ def simple_sort(data: List[int]) -> List[list]:
         simple_sort([2, 9, 6, 7, 3, 2, 1])
         >>> [1, 2, 2, 3, 6, 7, 9]
     """
-    pass
+
+    for i in range(len(data)):
+        for j in range(len(data) - 1):
+            if data[j] > data[j + 1]:
+                data[j + 1], data[j] = data[j], data[j + 1]
+    return data
+
+
+
