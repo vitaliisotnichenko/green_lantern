@@ -106,9 +106,7 @@ def some_loop_exercise() -> list:
     list_1 = []
 
     for i in list(range(13)):
-        if i == 6:
-            continue
-        elif i == 7:
+        if (i==6) or (i==7):
             continue
         list_1.append(i)
     return (list_1)
